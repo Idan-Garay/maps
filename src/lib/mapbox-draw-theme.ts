@@ -6,7 +6,7 @@ export const MAPBOX_DRAW_THEME = [
   {
     id: 'gl-draw-line',
     type: 'line',
-    // filter: ['all', ['==', '$type', 'Point'], ['has', 'user_portColor']],
+    filter: ['all', ['==', '$type', 'Point'], ['has', 'user_portColor']],
     layout: {
       'line-cap': 'round',
       'line-join': 'round',
@@ -42,7 +42,7 @@ export const MAPBOX_DRAW_THEME = [
   {
     id: 'gl-draw-polygon-stroke-active',
     type: 'line',
-    filter: ['all', ['==', '$type', 'Polygon'], ['!=', 'mode', 'static']],
+    // filter: ['all', ['==', '$type', 'Polygon'], ['!=', 'mode', 'static']],
     layout: {
       'line-cap': 'round',
       'line-join': 'round',

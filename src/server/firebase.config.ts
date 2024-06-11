@@ -1,8 +1,8 @@
 export const firebaseConfig = {
-  apiKey: 'AIzaSyDJnrcg0f1XQYN4th-_9q1s2HNOyr6jOsc',
-  authDomain: 'maps-drawpoint.firebaseapp.com',
-  projectId: 'maps-drawpoint',
-  storageBucket: 'maps-drawpoint.appspot.com',
-  messagingSenderId: '757009675505',
-  appId: '1:757009675505:web:05890791e2116238f06550',
+  apiKey: process.env.FIREBASE_APIKEY,
+  authDomain: process.env.FIREBASE_AUTHDOMAIN,
+  projectId: process.env.FIREBASE_PROJECTID,
+  storageBucket: process.env.FIREBASE_STORAGEBUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGINGSENDERID,
+  appId: process.env.FIREBASE_APPID,
 }

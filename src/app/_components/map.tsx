@@ -54,17 +54,16 @@ export const Map = () => {
       zoom: zoom,
     })
     const draw = new MapboxDraw({
-      // displayControlsDefault: false,
-      // Select which mapbox-gl-draw control buttons to add to the map.
       controls: {
         polygon: true,
         trash: true,
+        point: false,
+        line_string: false,
+        combine_features: false,
+        uncombine_features: false,
       },
       styles: MAPBOX_DRAW_THEME,
       userProperties: true,
-      // Set mapbox-gl-draw to draw by default.
-      // The user does not have to click the polygon control button first.
-      // defaultMode: '',
     })
 
     const geocoder = new MapboxGeocoder({
@@ -108,6 +107,7 @@ export const Map = () => {
           'fill-color': selectedColor,
         },
       })
+      draw.add(featureCollection.current)
       drawRef.current = draw
       mapRef.current = map
     })
@@ -138,13 +138,6 @@ export const Map = () => {
       const mapSource = map.getSource('main') as GeoJSONSource
       mapSource.setData(featureCollection.current)
 
-      // Note: mapbox's polygons are stored in draw.getAll()
-      // 1. feature = gets an object with features property
-      // 2. add feature to featureCollection.current.features (or every update, store draw.getAll() in featureCollection.current)
-      // const data = draw.getAll()
-      // const area = data.features[0]
-      // const areaId = String(area.id)
-      // const feature = data.features[0]
       currentFeature.current = e.features[0] // triggers when points are connected
     }
 
